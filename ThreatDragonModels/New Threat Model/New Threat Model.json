@@ -31,8 +31,8 @@
                 "text": "Desktop\nApplication"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -136,15 +136,28 @@
               "threats": [
                 {
                   "id": "ada68417-8fc2-4e79-9441-d14f6169d850",
-                  "title": "New STRIDE threat",
+                  "title": "Unauthorised access",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "An attacker may use the application without permission and access confidential data.",
+                  "mitigation": "The application requires a password to login.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                },
+                {
+                  "id": "9a2874ad-5e8e-4595-a2a0-58bc68c62de3",
+                  "title": "Credential theft",
                   "status": "Open",
                   "severity": "Medium",
-                  "type": "Spoofing",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "type": "Information disclosure",
+                  "description": "An attacker could obtain the password and access confidential data.",
+                  "mitigation": "The passwords are stored as hash values only. There is no way to get a password in plain text.",
                   "modelType": "STRIDE",
-                  "new": true,
-                  "number": 4,
+                  "new": false,
+                  "number": 5,
                   "score": ""
                 }
               ],
@@ -152,7 +165,7 @@
                 "spoofing": 0,
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 2,
+                "informationDisclosure": 4,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
               }
@@ -741,6 +754,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 4
+    "threatTop": 5
   }
 }
