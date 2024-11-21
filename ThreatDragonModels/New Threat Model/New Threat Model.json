@@ -434,7 +434,7 @@
                   "severity": "Medium",
                   "type": "Information disclosure",
                   "description": "An attacker could manipulate files in an unexpected way in order bypass the application error handling. This can lead to unexpected application behavior and open access to confidential data. ",
-                  "mitigation": "The application is running within a Java Virtual Machine. The usual attack patterns (e.g. stack overflow) will not work. The worst scenario is an application shutdown.",
+                  "mitigation": "The application is running within a Java Virtual Machine. The usual attack patterns (e.g. buffer overflow) will not work. The worst scenario is an application shutdown.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 9,
@@ -443,7 +443,7 @@
               ],
               "threatFrequency": {
                 "tampering": 0,
-                "informationDisclosure": 1,
+                "informationDisclosure": 2,
                 "denialOfService": 0
               }
             },
