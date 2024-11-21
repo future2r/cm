@@ -31,8 +31,8 @@
                 "text": "Desktop\nApplication"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -128,7 +128,7 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
@@ -138,7 +138,7 @@
                   "id": "ada68417-8fc2-4e79-9441-d14f6169d850",
                   "title": "Unauthorised access",
                   "status": "Mitigated",
-                  "severity": "Medium",
+                  "severity": "High",
                   "type": "Information disclosure",
                   "description": "An attacker may use the application without permission and access confidential data.",
                   "mitigation": "The application requires a password to login.",
@@ -150,8 +150,8 @@
                 {
                   "id": "9a2874ad-5e8e-4595-a2a0-58bc68c62de3",
                   "title": "Credential theft",
-                  "status": "Open",
-                  "severity": "Medium",
+                  "status": "Mitigated",
+                  "severity": "High",
                   "type": "Information disclosure",
                   "description": "An attacker could obtain the password and access confidential data.",
                   "mitigation": "The passwords are stored as hash values only. There is no way to get a password in plain text.",
@@ -165,17 +165,10 @@
                 "spoofing": 0,
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 4,
+                "informationDisclosure": 7,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -457,7 +450,8 @@
             "target": {
               "cell": "a8b94d9b-953b-48b6-802b-51496f2ce9a3",
               "port": "9b76d5d5-c9e4-41d0-bb01-720dbfec9994"
-            }
+            },
+            "vertices": []
           },
           {
             "shape": "flow",
@@ -501,7 +495,8 @@
             "target": {
               "cell": "f7b5fb37-66e1-48ac-a6fc-a355b8593a22",
               "port": "9a8a2b6e-12b4-4bc9-986b-b1bceda1b887"
-            }
+            },
+            "vertices": []
           },
           {
             "position": {
@@ -623,13 +618,66 @@
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "237e5512-191b-4d55-8d2f-8916d6a2cb2b",
+                  "title": "Unauthorised access",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "An attacker may access the database and query confidential data.",
+                  "mitigation": "The access to the database is protected by a password.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                },
+                {
+                  "id": "4d4904a3-10e8-404a-ba24-13efc25a45b0",
+                  "title": "Credential theft",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "An attacker could obtain the database password and use it to make unauthorised queries.",
+                  "mitigation": "The password is known to the application only. It is stored in an encrypted way within the application. Extracting this password from the application binaries would require deep knowledge of the internal behavior of the application the Java Virtual Machine (JVM). ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
+                },
+                {
+                  "id": "a9a53598-4671-44e6-9390-2c21a70129f3",
+                  "title": "Manipulate Data",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker could directly manipulate the data stored in the database.",
+                  "mitigation": "The data is protected by means like checksums so the database can detect any data manipulation. Bypassing this would require access to the computer where the database is running and deep knowledge of the storage layout of the database.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "repudiation": 0,
+                "informationDisclosure": 4,
+                "denialOfService": 0
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
             "position": {
               "x": 325,
-              "y": 572
+              "y": 542
             },
             "size": {
               "width": 120,
@@ -754,6 +802,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 5
+    "threatTop": 8
   }
 }
