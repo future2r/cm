@@ -333,82 +333,6 @@
             "vertices": []
           },
           {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "Trust Boundary",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false
-            },
-            "labels": [
-              {
-                "attrs": {
-                  "label": {
-                    "text": "Trust Boundary"
-                  }
-                }
-              }
-            ],
-            "id": "5bff7df8-e172-4e63-83e0-cc333cc19c0a",
-            "source": {
-              "x": 500,
-              "y": 290
-            },
-            "target": {
-              "x": 500,
-              "y": 560
-            },
-            "vertices": [
-              {
-                "x": 470,
-                "y": 430
-              }
-            ]
-          },
-          {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "Trust Boundary",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false
-            },
-            "labels": [
-              {
-                "attrs": {
-                  "label": {
-                    "text": "Trust Boundary"
-                  }
-                }
-              }
-            ],
-            "id": "9a34fb97-baf0-4d2d-84cf-11723d1a7cbe",
-            "source": {
-              "x": 260,
-              "y": 290
-            },
-            "target": {
-              "x": 260,
-              "y": 590
-            },
-            "vertices": [
-              {
-                "x": 230,
-                "y": 440
-              }
-            ]
-          },
-          {
             "shape": "flow",
             "attrs": {
               "line": {
@@ -473,7 +397,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Load Files",
+              "name": "Import Files",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -504,7 +428,7 @@
               }
             },
             "labels": [
-              "Load Files"
+              "Import Files"
             ],
             "id": "14c67ab7-de39-4649-835e-5b0f96949e92",
             "source": {
@@ -516,6 +440,82 @@
               "port": "36f58f0a-2bf9-4e33-91da-70671ab2af98"
             },
             "vertices": []
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Trust Boundary"
+                  }
+                }
+              }
+            ],
+            "id": "5bff7df8-e172-4e63-83e0-cc333cc19c0a",
+            "source": {
+              "x": 510,
+              "y": 300
+            },
+            "target": {
+              "x": 510,
+              "y": 580
+            },
+            "vertices": [
+              {
+                "x": 510,
+                "y": 430
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Trust Boundary"
+                  }
+                }
+              }
+            ],
+            "id": "9a34fb97-baf0-4d2d-84cf-11723d1a7cbe",
+            "source": {
+              "x": 250,
+              "y": 310
+            },
+            "target": {
+              "x": 250,
+              "y": 590
+            },
+            "vertices": [
+              {
+                "x": 250,
+                "y": 440
+              }
+            ]
           },
           {
             "position": {
@@ -531,11 +531,13 @@
                 "text": "Database"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -631,7 +633,7 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
@@ -676,13 +678,26 @@
                   "new": false,
                   "number": 8,
                   "score": ""
+                },
+                {
+                  "id": "d907c2c0-b6d1-42ee-8ab3-3bc4d2ba5adb",
+                  "title": "Request flooding",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "An attacker could perform a huge number of requests to the database so it cannot serve the application requests anymore.",
+                  "mitigation": "The person responsible for the IT security at the installation site may limit the access to the database computer by firewall rules.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "tampering": 2,
                 "repudiation": 0,
                 "informationDisclosure": 4,
-                "denialOfService": 0
+                "denialOfService": 1
               }
             }
           },
@@ -697,15 +712,15 @@
             },
             "attrs": {
               "text": {
-                "text": "Files"
+                "text": "Data Files"
               },
               "topLine": {
                 "strokeWidth": 1.5,
-                "strokeDasharray": null
+                "strokeDasharray": "4 3"
               },
               "bottomLine": {
                 "strokeWidth": 1.5,
-                "strokeDasharray": null
+                "strokeDasharray": "4 3"
               }
             },
             "visible": true,
@@ -796,9 +811,9 @@
             "zIndex": 12,
             "data": {
               "type": "tm.Store",
-              "name": "Files",
+              "name": "Data Files",
               "description": "",
-              "outOfScope": false,
+              "outOfScope": true,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "isALog": false,
@@ -814,6 +829,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 9
+    "threatTop": 10
   }
 }
