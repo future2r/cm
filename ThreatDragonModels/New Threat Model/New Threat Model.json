@@ -482,19 +482,38 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "6a51464b-26e0-4044-8806-fdb4ba128f14",
+                  "title": "Manipulated Files",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "An attacker could manipulate files in an unexpected way in order bypass the application error handling. This can lead to unexpected application behavior and open access to confidential data. ",
+                  "mitigation": "The application is running within a Java Virtual Machine. The usual attack patterns (e.g. stack overflow) will not work. The worst scenario is an application shutdown.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Load Files"
             ],
             "id": "14c67ab7-de39-4649-835e-5b0f96949e92",
             "source": {
-              "cell": "a8b94d9b-953b-48b6-802b-51496f2ce9a3",
-              "port": "36f58f0a-2bf9-4e33-91da-70671ab2af98"
-            },
-            "target": {
               "cell": "f7b5fb37-66e1-48ac-a6fc-a355b8593a22",
               "port": "9a8a2b6e-12b4-4bc9-986b-b1bceda1b887"
+            },
+            "target": {
+              "cell": "a8b94d9b-953b-48b6-802b-51496f2ce9a3",
+              "port": "36f58f0a-2bf9-4e33-91da-70671ab2af98"
             },
             "vertices": []
           },
@@ -665,13 +684,6 @@
                 "informationDisclosure": 4,
                 "denialOfService": 0
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -802,6 +814,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 8
+    "threatTop": 9
   }
 }
