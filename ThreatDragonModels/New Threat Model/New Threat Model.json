@@ -38,6 +38,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -121,7 +122,6 @@
               ]
             },
             "id": "a8b94d9b-953b-48b6-802b-51496f2ce9a3",
-            "zIndex": 1,
             "data": {
               "type": "tm.Process",
               "name": "Desktop\nApplication",
@@ -187,11 +187,12 @@
               "body": {
                 "stroke": "#333333",
                 "strokeWidth": 1.5,
-                "strokeDasharray": null
+                "strokeDasharray": "4 3"
               }
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -275,12 +276,11 @@
               ]
             },
             "id": "d89927e1-2339-4104-aef0-07d04bb5b4df",
-            "zIndex": 2,
             "data": {
               "type": "tm.Actor",
               "name": "User",
               "description": "",
-              "outOfScope": false,
+              "outOfScope": true,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
@@ -291,7 +291,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -311,12 +312,31 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "02e6adf8-4fba-4354-b31c-2b6ba97fcdb1",
+                  "title": "Communication Interception",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker could intercept the communication between the application and the database and access confidential data.",
+                  "mitigation": "The person responsible for the IT security at the installation site may install usual protection measures in compliance with good IT security practice.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Load/Save Data"
@@ -343,7 +363,7 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null
+                "strokeDasharray": "4 3"
               }
             },
             "width": 200,
@@ -352,9 +372,9 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Inoput/Output",
+              "name": "Input/Output",
               "description": "",
-              "outOfScope": false,
+              "outOfScope": true,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "isBidirectional": false,
@@ -364,7 +384,7 @@
               "threats": []
             },
             "labels": [
-              "Inoput/Output"
+              "Input/Output"
             ],
             "id": "74a68985-4968-4583-9db5-8a6b9a99c790",
             "source": {
@@ -543,6 +563,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 11,
             "ports": {
               "groups": {
                 "top": {
@@ -626,7 +647,6 @@
               ]
             },
             "id": "6f4cbbec-ac58-4e4f-bc2c-ae103f80d974",
-            "zIndex": 11,
             "data": {
               "type": "tm.Store",
               "name": "Database",
@@ -725,6 +745,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 12,
             "ports": {
               "groups": {
                 "top": {
@@ -808,7 +829,6 @@
               ]
             },
             "id": "f7b5fb37-66e1-48ac-a6fc-a355b8593a22",
-            "zIndex": 12,
             "data": {
               "type": "tm.Store",
               "name": "Data Files",
@@ -829,6 +849,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 10
+    "threatTop": 12
   }
 }
